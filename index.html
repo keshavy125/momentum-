@@ -8,14 +8,16 @@
         document.addEventListener("DOMContentLoaded", function () {
             const checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-            // Load saved state from LocalStorage
+            // Load saved states from localStorage
             checkboxes.forEach((checkbox) => {
                 const savedState = localStorage.getItem(checkbox.id);
-                if (savedState === "true") {
-                    checkbox.checked = true;
+                if (savedState !== null) {
+                    checkbox.checked = savedState === "true";
                 }
+            });
 
-                // Save state on change
+            // Save state on change
+            checkboxes.forEach((checkbox) => {
                 checkbox.addEventListener("change", function () {
                     localStorage.setItem(checkbox.id, checkbox.checked);
                 });
@@ -25,390 +27,391 @@
 </head>
 <body>
     <h2>TryHackMe Rooms Checklist</h2>
+    <h2>Make By Keshav </h2>
     <ul>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/hello">Hello</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/howtousetryhackme">How to Use TryHackMe</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/gettingstarted">Getting Started</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/welcome">Welcome</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/tutorial">Tutorial</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/openvpn">OpenVPN</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/beginnerpathintro">Beginner Path Intro</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/startingoutincybersec">Starting Out in CyberSec</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/introtoresearch">Intro to Research</a></li>
-        <h2>Basics Rooms:</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linux2">Linux 2</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxmodules">Linux Modules</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxfundamentalspart1">Linux Fundamentals Part 1</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxfundamentalspart2">Linux Fundamentals Part 2</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxfundamentalspart3">Linux Fundamentals Part 3</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/basicpentestingjt">Basic Pentesting</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/pentestingfundamentals">Pentesting Fundamentals</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/principlesofsecurity">Principles of Security</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ccpentesting">CC Pentesting</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/hackermethodology">Hacker Methodology</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/physicalsecurityintro">Physical Security Intro</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxstrengthtraining">Linux Strength Training</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/catregex">Cat Regex</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/openvas">OpenVAS</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/btmisp">BTM ISP</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/iso27001">ISO 27001</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ultratech1">Ultra Tech 1</a></li>
-        <h2>Recon</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/passiverecon">Passive Recon</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/activerecon">Active Recon</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/contentdiscovery">Content Discovery</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ohsint">Open Source Intelligence (OSINT)</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/shodan">Shodan</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/googledorking">Google Dorking</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/searchlightosint">Searchlight OSINT</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/webosint">Web OSINT</a></li>
-        <h2>Scripting</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/pythonbasics">Python Basics</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/pythonplayground">Python Playground</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/intropocscripting">Intro to POC Scripting</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/peakhill">Peak Hill</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/javascriptbasics">JavaScript Basics</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/bashscripting">Bash Scripting</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/rust">Rust</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/sakura">Sakura</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/yara">Yara</a></li>
-        <h2>Networking</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/introtonetworking">Intro to Networking</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/whatisnetworking">What is Networking</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bpnetworking">BP Networking</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/introtolan">Intro to LAN</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/httpindetail">HTTP in Detail</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/dnsindetail">DNS in Detail</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rfirmware">RFirmware</a></li>
-            <h2>Tooling</h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/metasploitintro">Metasploit Intro</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rpmetasploit">RP Metasploit</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rptmux">RP Tmux</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/tmuxremux">Tmux Remux</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/hydra">Hydra</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rpsublist3r">RP Sublist3r</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/toolboxvim">Toolbox VIM</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/learnowaspzap">Learn OWASP ZAP</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/phishinghiddeneye">Phishing Hidden Eye</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rustscan">RustScan</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rpnessusredux">RP Nessus Redux</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/nmap01">Nmap 01</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/furthernmap">Further Nmap</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/tshark">TShark</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/ffuf">FFUF</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/burpsuitebasics">Burp Suite Basics</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/burpsuiterepeater">Burp Suite Repeater</a></li>
-            <h2>Crypto & Hashes:  </h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/cryptographyfordummies">Cryptography for Dummies</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/crackthehash">Crack the Hash</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/crackthehashlevel2">Crack the Hash Level 2</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/passwordsecurity">Password Security</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/agentsudoctf">Agent Sudo CTF</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bruteit">Brute IT</a></li>
-            <h2>Web</h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/webfundamentals">Web Fundamentals</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/webappsec101">Web App Sec 101</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnerabilities101">Vulnerabilities 101</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/walkinganapplication">Walking an Application</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/owasptop10">OWASP Top 10</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/owaspjuiceshop">OWASP Juice Shop</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rpwebscanning">RP Web Scanning</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/owaspmutillidae">OWASP Mutillidae</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/webgoat">WebGoat</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/dvwa">DVWA</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnnet1">VulnNet 1</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/juicydetails">Juicy Details</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnversity">VulnVersity</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/injection">Injection</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/lfibasics">LFI Basics</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/inclusion">Inclusion</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/sqlilab">SQLi Lab</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/learnssti">Learn SSTI</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/sqlinjectionlm">SQL Injection Lab</a></li>
-            <h2>Android</h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/androidhacking101">Android Hacking 101</a></li>
-                    <h2>Forensics:            </h2>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxserverforensics">Linux Server Forensics</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/forensics">Forensics</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/memoryforensics">Memory Forensics</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/bpvolatility">BP Volatility</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/autopsy2ze0">Autopsy 2.0</a></li>
-                    <h2>Reverse Engineering:</h2>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/introtox8664">Intro to x86-64</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/win64assembly">Win64 Assembly</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/reverseengineering">Reverse Engineering</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/reverselfiles">Reverse Files</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/jvmreverseengineering">JVM Reverse Engineering</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/ccradare">CC Radare</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/ccghidra2">CC Ghidra 2</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/aster">Aster</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/classicpasswd">Classic Password</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/reloaded">Reloaded</a></li>
-                    <h2>Malware Analysis            </h2>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/historyofmalware">History of Malware</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/malmalintroductory">MalMal Introductory</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/basicmalwarere">Basic Malware RE</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/malresearching">Malware Researching</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/mma">MMA</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/c2carnage">C2 Carnage</a></li>
-                    <li><input type="checkbox"> <a href="https://tryhackme.com/room/dunklematerieptxc9">Dunkle Materie PTXC9</a></li>
-        <h2>Steganography</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ccstego">CC Stego</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/cicada3301vol1">Cicada 3301 Vol 1</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/musicalstego">Musical Stego</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/madness">Madness</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/psychobreak">Psychobreak</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/unstabletwin">Unstable Twin</a></li>
-        <h2>PrivEsc:</h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/linprivesc">Linux Privilege Escalation</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxprivesc">Linux Privilege Escalation</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxprivescarena">Linux Privilege Escalation Arena</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/windows10privesc">Windows 10 Privilege Escalation</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/windowsprivescarena">Windows Privilege Escalation Arena</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxagency">Linux Agency</a></li>
-            <h2>Windows:    </h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/windowsfundamentals1xbx">Windows Fundamentals 1</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/windowsfundamentals2x0x">Windows Fundamentals 2</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/windowsfundamentals3xzx">Windows Fundamentals 3</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/investigatingwindows">Investigating Windows</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/investigatingwindows2">Investigating Windows 2</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/investigatingwindows3">Investigating Windows 3</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/blueprint">Blueprint</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnnetactive">VulnNet Active</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/anthem">Anthem</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/blue">Blue</a></li>
-            <h2>Active Directory:    </h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/attacktivedirectory">Active Directory</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/postexploit">Post Exploit</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/ustoun">Ustoun</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/enterprise">Enterprise</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/raz0rblack">Raz0r Black</a></li>
-            <h2>PCAP Analysis    </h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/h4cked">H4CKED</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/c2carnage">C2 Carnage</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/cct2019">CCT 2019</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/overpass2hacked">Overpass 2 Hacked</a></li>
-            <h2>BufferOverflow:    </h2>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bufferoverflowprep">Buffer Overflow Prep</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/gatekeeper">Gatekeeper</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/chronicle">Chronicle</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/introtopwntools">Intro to PWNT Tools</a></li>
-        <h2>Easy CTF:</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/overlayfs">OverlayFS</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/gamingserver">Gaming Server</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/psychobreak">Psycho Break</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/cowboyhacker">Cowboy Hacker</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/ctf">CTF</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/rrootme">RRootMe</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/attackerkb">Attacker KB</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/picklerick">Pickle Rick</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/c4ptur3th3fl4g">Capture the Flag</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bsidesgtlibrary">BSidesGT Library</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bsidesgtthompson">BSidesGT Thompson</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/easyctf">Easy CTF</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/lazyadmin">Lazy Admin</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bsidesgtanonforce">BSidesGT AnonForce</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/ignite">Ignite</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/wgelctf">WGEL CTF</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/kenobi">Kenobi</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bsidesgtdav">BSidesGT Dav</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/ninjaskills">Ninja Skills</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/ice">ICE</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/lianyu">Lianyu</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/thecodcaper">The Code Caper</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/blaster">Blaster</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/encryptioncrypto101">Encryption Crypto 101</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/brooklynninenine">Brooklyn Nine-Nine</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/yearoftherabbit">Year of the Rabbit</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/jackofalltrades">Jack of All Trades</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/madness">Madness</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/kothfoodctf">KOTH Food CTF</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/easypeasyctf">Easy Peasy CTF</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/tonythetiger">Tony the Tiger</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/ctfcollectionvol1">CTF Collection Vol 1</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/smaggrotto">Smaggrotto</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/couch">Couch</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/source">Source</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/overpass">Overpass</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/pokemon">Pokemon</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/bolt">Bolt</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/overpass2hacked">Overpass 2 Hacked</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/kiba">Kiba</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/poster">Poster</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/chocolatefactory">Chocolate Factory</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/startup">Startup</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/chillhack">Chill Hack</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/colddboxeasy">Cold Box Easy</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/glitch">Glitch</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/allinonemj">All in One MJ</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/archangel">Archangel</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/cyborgt8">Cyborg T8</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/lunizzctfnd">Lunizz CTF ND</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/badbyte">Bad Byte</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/teamcw">Team CW</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnnetnode">VulnNet Node</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnnetinternal">VulnNet Internal</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/atlas">Atlas</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnnetroasted">VulnNet Roasted</a></li>
-            <li><input type="checkbox"> <a href="https://tryhackme.com/room/catpictures">Cat Pictures</a></li>
-        <h2>Medium CTF</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/road">Road</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/mrrobot">Mr. Robot</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/goldeneye">Goldeneye</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/stuxctf">Stux CTF</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/boilerctf2">Boiler CTF 2</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/jokerctf">Joker CTF</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/biohazard">Biohazard</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/breakit">Break It</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/willow">Willow</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/marketplace">Marketplace</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/nax">NAX</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/mindgames">Mind Games</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/anonymous">Anonymous</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/blog">Blog</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/wonderland">Wonderland</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/0day">0day</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/bsidesgtdevelpy">BSidesGT Develpy</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ctfcollectionvol2">CTF Collection Vol 2</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cmess">CMess</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/dejavu">Deja Vu</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/hackernote">Hacker Note</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/dogcat">Dog Cat</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/convertmyvideo">Convert My Video</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/kothhackers">KOTH Hackers</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/revenge">Revenge</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/harder">Harder</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/haskhell">Haskhell</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/undiscoveredup">Undiscovered Up</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/breakoutthecage1">Breakout The Cage 1</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/theimpossiblechallenge">The Impossible Challenge</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/lookingglass">Looking Glass</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/recovery">Recovery</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/relevant">Relevant</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ghizerctf">Ghizer CTF</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/mnemonic">Mnemonic</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/wwbuddy">WW Buddy</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/theblobblog">The Blob Blog</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cooctusadventures">Cooctus Adventures</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ctfonepiece65">CTF One Piece 65</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/toc2">TOC 2</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/nerdherd">Nerd Herd</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/kuberneteschalltdi2020">Kubernetes Challenge 2020</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/theserverfromhell">The Server From Hell</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/jacobtheboss">Jacob The Boss</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/unbakedpie">Unbaked Pie</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/bookstoreoc">Bookstore OC</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/overpass3hosting">Overpass 3 Hosting</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/battery">Battery</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/madeyescastle">Mad Eye's Castle</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/enpass">Enpass</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/sustah">Sustah</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/somesint">Some SINT</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/tokyoghoul666">Tokyo Ghoul 666</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/watcher">Watcher</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/broker">Broker</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/inferno">Inferno</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnnetdotpy">VulnNet Dot Py</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/wekorra">Wekorra</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/pylonzf">Pylon ZF</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/thegreatescape">The Great Escape</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/safezone">Safezone</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/nahamstore">Naham Store</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/sweettoothinc">Sweet Tooth Inc</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cmspit">CMS Pit</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/superspamr">Super Spam R</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/thatstheticket">That's The Ticket</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/debug">Debug</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/redstoneonecarat">Redstone One Carat</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/coldvvars">Cold VVars</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/metamorphosis">Metamorphosis</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/sqhell">SQ Hell</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/fortress">Fortress</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cybercrafted">Cyber Crafted</a></li>
-        <h2>Hard CTF</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/m4tr1xexitdenied">M4tr1x Exit Denied</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/motunui">Motunui</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/spring">Spring</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/brainpan">Brainpan</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/borderlands">Borderlands</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/hc0nchristmasctf">HC0N Christmas CTF</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/dailybugle">Daily Bugle</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/retro">Retro</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/jeff">Jeff</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/racetrackbank">Racetrack Bank</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/davesblog">Dave's Blog</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cherryblossom">Cherry Blossom</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cct2019">CCT 2019</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ironcorp">Iron Corp</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/carpediem1">Carpe Diem 1</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/ra">RA</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/yotf">YOTF</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/forbusinessreasons">For Business Reasons</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/anonymousplayground">Anonymous Playground</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/misguidedghosts">Misguided Ghosts</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/theseus">Theseus</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/internal">Internal</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/yearofthedog">Year of the Dog</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/inacave">In A Cave</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/yearoftheowl">Year of the Owl</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/yearofthepig">Year of the Pig</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/envizon">Envizon</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/gamebuzz">Game Buzz</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/fusioncorp">Fusion Corp</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/crocccrew">Crocc Crew</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/uranium">Uranium</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/yearofthejellyfish">Year of the Jellyfish</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/rocket">Rocket</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/squidgameroom">Squid Game Room</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/enterprize">Enterprize</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/adana">Adana</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/vulnnetdotjar">VulnNet Dot Jar</a></li>
-        
-        <h2>Special Events:</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/hackerofthehill">Hacker of the Hill</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/25daysofchristmas">25 Days of Christmas</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/learncyberin25days">Learn Cyber in 25 Days</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/adventofcyber2">Advent of Cyber 2</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/adventofcyber3">Advent of Cyber 3</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cyberweek2021">Cyber Week 2021</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/tickets1">Tickets 1</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/tickets2">Tickets 2</a></li>
-        
-        <h2>Misc:</h2>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/solar">Solar</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/django">Django</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/githappens">Git Happens</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/meltdownexplained">Meltdown Explained</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/bpsplunk">BPSplunk</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxbackdoors">Linux Backdoors</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/thefindcommand">The Find Command</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/jupyter101">Jupyter 101</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/geolocatingimages">Geolocating Images</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/torforbeginners">Tor for Beginners</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/tomghost">Tom Ghost</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/dllhijacking">DLL Hijacking</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/iotintro">IoT Intro</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/attackingics1">Attacking ICS 1</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/attackingics2">Attacking ICS 2</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/printerhacking101">Printer Hacking 101</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/dnsmanipulation">DNS Manipulation</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/flask">Flask</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/mitre">MITRE</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/magician">Magician</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/jpgchat">JPG Chat</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/sudovulnssamedit">Sudo Vulnerability Samedit</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/cve202141773">CVE-2021-41773</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/binaryheaven">Binary Heaven</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/gitandcrumpets">Git and Crumpets</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/polkit">Polkit</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/hipflask">Hip Flask</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/bypassdisablefunctions">Bypass Disable Functions</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/wordpresscve202129447">WordPress CVE-2021-29447</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/linuxfunctionhooking">Linux Function Hooking</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/revilcorp">Revil Corp</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/sudovulnsbof">Sudo Vulnerabilities BOF</a></li>
-        <li><input type="checkbox"> <a href="https://tryhackme.com/room/sudovulnsbypass">Sudo Vulnerabilities Bypass</a></li>
-        
+        <li><input type="checkbox" id="hello"> <a href="https://tryhackme.com/room/hello">Hello</a></li>
+    <li><input type="checkbox" id="howtousetryhackme"> <a href="https://tryhackme.com/room/howtousetryhackme">How to Use TryHackMe</a></li>
+    <li><input type="checkbox" id="gettingstarted"> <a href="https://tryhackme.com/room/gettingstarted">Getting Started</a></li>
+    <li><input type="checkbox" id="welcome"> <a href="https://tryhackme.com/room/welcome">Welcome</a></li>
+    <li><input type="checkbox" id="tutorial"> <a href="https://tryhackme.com/room/tutorial">Tutorial</a></li>
+    <li><input type="checkbox" id="openvpn"> <a href="https://tryhackme.com/room/openvpn">OpenVPN</a></li>
+    <li><input type="checkbox" id="beginnerpathintro"> <a href="https://tryhackme.com/room/beginnerpathintro">Beginner Path Intro</a></li>
+    <li><input type="checkbox" id="startingoutincybersec"> <a href="https://tryhackme.com/room/startingoutincybersec">Starting Out in CyberSec</a></li>
+    <li><input type="checkbox" id="introtoresearch"> <a href="https://tryhackme.com/room/introtoresearch">Intro to Research</a></li>
+    <h2>Basics Rooms:</h2>
+    <li><input type="checkbox" id="linux2"> <a href="https://tryhackme.com/room/linux2">Linux 2</a></li>
+    <li><input type="checkbox" id="linuxmodules"> <a href="https://tryhackme.com/room/linuxmodules">Linux Modules</a></li>
+    <li><input type="checkbox" id="linuxfundamentalspart1"> <a href="https://tryhackme.com/room/linuxfundamentalspart1">Linux Fundamentals Part 1</a></li>
+    <li><input type="checkbox" id="linuxfundamentalspart2"> <a href="https://tryhackme.com/room/linuxfundamentalspart2">Linux Fundamentals Part 2</a></li>
+    <li><input type="checkbox" id="linuxfundamentalspart3"> <a href="https://tryhackme.com/room/linuxfundamentalspart3">Linux Fundamentals Part 3</a></li>
+    <li><input type="checkbox" id="basicpentestingjt"> <a href="https://tryhackme.com/room/basicpentestingjt">Basic Pentesting</a></li>
+    <li><input type="checkbox" id="pentestingfundamentals"> <a href="https://tryhackme.com/room/pentestingfundamentals">Pentesting Fundamentals</a></li>
+    <li><input type="checkbox" id="principlesofsecurity"> <a href="https://tryhackme.com/room/principlesofsecurity">Principles of Security</a></li>
+    <li><input type="checkbox" id="ccpentesting"> <a href="https://tryhackme.com/room/ccpentesting">CC Pentesting</a></li>
+    <li><input type="checkbox" id="hackermethodology"> <a href="https://tryhackme.com/room/hackermethodology">Hacker Methodology</a></li>
+    <li><input type="checkbox" id="physicalsecurityintro"> <a href="https://tryhackme.com/room/physicalsecurityintro">Physical Security Intro</a></li>
+    <li><input type="checkbox" id="linuxstrengthtraining"> <a href="https://tryhackme.com/room/linuxstrengthtraining">Linux Strength Training</a></li>
+    <li><input type="checkbox" id="catregex"> <a href="https://tryhackme.com/room/catregex">Cat Regex</a></li>
+    <li><input type="checkbox" id="openvas"> <a href="https://tryhackme.com/room/openvas">OpenVAS</a></li>
+    <li><input type="checkbox" id="btmisp"> <a href="https://tryhackme.com/room/btmisp">BTM ISP</a></li>
+    <li><input type="checkbox" id="iso27001"> <a href="https://tryhackme.com/room/iso27001">ISO 27001</a></li>
+    <li><input type="checkbox" id="ultratech1"> <a href="https://tryhackme.com/room/ultratech1">Ultra Tech 1</a></li>
+    <h2>Recon</h2>
+    <li><input type="checkbox" id="passiverecon"> <a href="https://tryhackme.com/room/passiverecon">Passive Recon</a></li>
+    <li><input type="checkbox" id="activerecon"> <a href="https://tryhackme.com/room/activerecon">Active Recon</a></li>
+    <li><input type="checkbox" id="contentdiscovery"> <a href="https://tryhackme.com/room/contentdiscovery">Content Discovery</a></li>
+    <li><input type="checkbox" id="ohsint"> <a href="https://tryhackme.com/room/ohsint">Open Source Intelligence (OSINT)</a></li>
+    <li><input type="checkbox" id="shodan"> <a href="https://tryhackme.com/room/shodan">Shodan</a></li>
+    <li><input type="checkbox" id="googledorking"> <a href="https://tryhackme.com/room/googledorking">Google Dorking</a></li>
+    <li><input type="checkbox" id="searchlightosint"> <a href="https://tryhackme.com/room/searchlightosint">Searchlight OSINT</a></li>
+    <li><input type="checkbox" id="webosint"> <a href="https://tryhackme.com/room/webosint">Web OSINT</a></li>
+    <h2>Scripting</h2>
+    <li><input type="checkbox" id="pythonbasics"> <a href="https://tryhackme.com/room/pythonbasics">Python Basics</a></li>
+    <li><input type="checkbox" id="pythonplayground"> <a href="https://tryhackme.com/room/pythonplayground">Python Playground</a></li>
+    <li><input type="checkbox" id="intropocscripting"> <a href="https://tryhackme.com/room/intropocscripting">Intro to POC Scripting</a></li>
+    <li><input type="checkbox" id="peakhill"> <a href="https://tryhackme.com/room/peakhill">Peak Hill</a></li>
+    <li><input type="checkbox" id="javascriptbasics"> <a href="https://tryhackme.com/room/javascriptbasics">JavaScript Basics</a></li>
+    <li><input type="checkbox" id="bashscripting"> <a href="https://tryhackme.com/room/bashscripting">Bash Scripting</a></li>
+    <li><input type="checkbox" id="rust"> <a href="https://tryhackme.com/room/rust">Rust</a></li>
+    <li><input type="checkbox" id="sakura"> <a href="https://tryhackme.com/room/sakura">Sakura</a></li>
+    <li><input type="checkbox" id="yara"> <a href="https://tryhackme.com/room/yara">Yara</a></li>
+    <h2>Networking</h2>
+    <li><input type="checkbox" id="introtonetworking"> <a href="https://tryhackme.com/room/introtonetworking">Intro to Networking</a></li>
+        <li><input type="checkbox" id="whatisnetworking"> <a href="https://tryhackme.com/room/whatisnetworking">What is Networking</a></li>
+        <li><input type="checkbox" id="bpnetworking"> <a href="https://tryhackme.com/room/bpnetworking">BP Networking</a></li>
+        <li><input type="checkbox" id="introtolan"> <a href="https://tryhackme.com/room/introtolan">Intro to LAN</a></li>
+        <li><input type="checkbox" id="httpindetail"> <a href="https://tryhackme.com/room/httpindetail">HTTP in Detail</a></li>
+        <li><input type="checkbox" id="dnsindetail"> <a href="https://tryhackme.com/room/dnsindetail">DNS in Detail</a></li>
+        <li><input type="checkbox" id="rfirmware"> <a href="https://tryhackme.com/room/rfirmware">RFirmware</a></li>
+        <h2>Tooling</h2>
+        <li><input type="checkbox" id="metasploitintro"> <a href="https://tryhackme.com/room/metasploitintro">Metasploit Intro</a></li>
+        <li><input type="checkbox" id="rpmetasploit"> <a href="https://tryhackme.com/room/rpmetasploit">RP Metasploit</a></li>
+        <li><input type="checkbox" id="rptmux"> <a href="https://tryhackme.com/room/rptmux">RP Tmux</a></li>
+        <li><input type="checkbox" id="tmuxremux"> <a href="https://tryhackme.com/room/tmuxremux">Tmux Remux</a></li>
+        <li><input type="checkbox" id="hydra"> <a href="https://tryhackme.com/room/hydra">Hydra</a></li>
+        <li><input type="checkbox" id="rpsublist3r"> <a href="https://tryhackme.com/room/rpsublist3r">RP Sublist3r</a></li>
+        <li><input type="checkbox" id="toolboxvim"> <a href="https://tryhackme.com/room/toolboxvim">Toolbox VIM</a></li>
+        <li><input type="checkbox" id="learnowaspzap"> <a href="https://tryhackme.com/room/learnowaspzap">Learn OWASP ZAP</a></li>
+        <li><input type="checkbox" id="phishinghiddeneye"> <a href="https://tryhackme.com/room/phishinghiddeneye">Phishing Hidden Eye</a></li>
+        <li><input type="checkbox" id="rustscan"> <a href="https://tryhackme.com/room/rustscan">RustScan</a></li>
+        <li><input type="checkbox" id="rpnessusredux"> <a href="https://tryhackme.com/room/rpnessusredux">RP Nessus Redux</a></li>
+        <li><input type="checkbox" id="nmap01"> <a href="https://tryhackme.com/room/nmap01">Nmap 01</a></li>
+        <li><input type="checkbox" id="furthernmap"> <a href="https://tryhackme.com/room/furthernmap">Further Nmap</a></li>
+        <li><input type="checkbox" id="tshark"> <a href="https://tryhackme.com/room/tshark">TShark</a></li>
+        <li><input type="checkbox" id="ffuf"> <a href="https://tryhackme.com/room/ffuf">FFUF</a></li>
+        <li><input type="checkbox" id="burpsuitebasics"> <a href="https://tryhackme.com/room/burpsuitebasics">Burp Suite Basics</a></li>
+        <li><input type="checkbox" id="burpsuiterepeater"> <a href="https://tryhackme.com/room/burpsuiterepeater">Burp Suite Repeater</a></li>
+        <h2>Crypto & Hashes:  </h2>
+        <li><input type="checkbox" id="cryptographyfordummies"> <a href="https://tryhackme.com/room/cryptographyfordummies">Cryptography for Dummies</a></li>
+        <li><input type="checkbox" id="crackthehash"> <a href="https://tryhackme.com/room/crackthehash">Crack the Hash</a></li>
+        <li><input type="checkbox" id="crackthehashlevel2"> <a href="https://tryhackme.com/room/crackthehashlevel2">Crack the Hash Level 2</a></li>
+        <li><input type="checkbox" id="passwordsecurity"> <a href="https://tryhackme.com/room/passwordsecurity">Password Security</a></li>
+        <li><input type="checkbox" id="agentsudoctf"> <a href="https://tryhackme.com/room/agentsudoctf">Agent Sudo CTF</a></li>
+        <li><input type="checkbox" id="bruteit"> <a href="https://tryhackme.com/room/bruteit">Brute IT</a></li>
+        <h2>Web</h2>
+        <li><input type="checkbox" id="webfundamentals"> <a href="https://tryhackme.com/room/webfundamentals">Web Fundamentals</a></li>
+        <li><input type="checkbox" id="webappsec101"> <a href="https://tryhackme.com/room/webappsec101">Web App Sec 101</a></li>
+        <li><input type="checkbox" id="vulnerabilities101"> <a href="https://tryhackme.com/room/vulnerabilities101">Vulnerabilities 101</a></li>
+        <li><input type="checkbox" id="walkinganapplication"> <a href="https://tryhackme.com/room/walkinganapplication">Walking an Application</a></li>
+        <li><input type="checkbox" id="owasptop10"> <a href="https://tryhackme.com/room/owasptop10">OWASP Top 10</a></li>
+        <li><input type="checkbox" id="owaspjuiceshop"> <a href="https://tryhackme.com/room/owaspjuiceshop">OWASP Juice Shop</a></li>
+        <li><input type="checkbox" id="rpwebscanning"> <a href="https://tryhackme.com/room/rpwebscanning">RP Web Scanning</a></li>
+        <li><input type="checkbox" id="owaspmutillidae"> <a href="https://tryhackme.com/room/owaspmutillidae">OWASP Mutillidae</a></li>
+        <li><input type="checkbox" id="webgoat"> <a href="https://tryhackme.com/room/webgoat">WebGoat</a></li>
+        <li><input type="checkbox" id="dvwa"> <a href="https://tryhackme.com/room/dvwa">DVWA</a></li>
+        <li><input type="checkbox" id="vulnnet1"> <a href="https://tryhackme.com/room/vulnnet1">VulnNet 1</a></li>
+        <li><input type="checkbox" id="juicydetails"> <a href="https://tryhackme.com/room/juicydetails">Juicy Details</a></li>
+        <li><input type="checkbox" id="vulnversity"> <a href="https://tryhackme.com/room/vulnversity">VulnVersity</a></li>
+        <li><input type="checkbox" id="injection"> <a href="https://tryhackme.com/room/injection">Injection</a></li>
+        <li><input type="checkbox" id="lfibasics"> <a href="https://tryhackme.com/room/lfibasics">LFI Basics</a></li>
+        <li><input type="checkbox" id="inclusion"> <a href="https://tryhackme.com/room/inclusion">Inclusion</a></li>
+        <li><input type="checkbox" id="sqlilab"> <a href="https://tryhackme.com/room/sqlilab">SQLi Lab</a></li>
+        <li><input type="checkbox" id="learnssti"> <a href="https://tryhackme.com/room/learnssti">Learn SSTI</a></li>
+        <li><input type="checkbox" id="sqlinjectionlm"> <a href="https://tryhackme.com/room/sqlinjectionlm">SQL Injection Lab</a></li>
+        <h2>Android</h2>
+        <li><input type="checkbox" id="androidhacking101"> <a href="https://tryhackme.com/room/androidhacking101">Android Hacking 101</a></li>
+                <h2>Forensics:            </h2>
+                <li><input type="checkbox" id="linuxserverforensics"> <a href="https://tryhackme.com/room/linuxserverforensics">Linux Server Forensics</a></li>
+                <li><input type="checkbox" id="forensics"> <a href="https://tryhackme.com/room/forensics">Forensics</a></li>
+                <li><input type="checkbox" id="memoryforensics"> <a href="https://tryhackme.com/room/memoryforensics">Memory Forensics</a></li>
+                <li><input type="checkbox" id="bpvolatility"> <a href="https://tryhackme.com/room/bpvolatility">BP Volatility</a></li>
+                <li><input type="checkbox" id="autopsy2ze0"> <a href="https://tryhackme.com/room/autopsy2ze0">Autopsy 2.0</a></li>
+                <h2>Reverse Engineering:</h2>
+                <li><input type="checkbox" id="introtox8664"> <a href="https://tryhackme.com/room/introtox8664">Intro to x86-64</a></li>
+                <li><input type="checkbox" id="win64assembly"> <a href="https://tryhackme.com/room/win64assembly">Win64 Assembly</a></li>
+                <li><input type="checkbox" id="reverseengineering"> <a href="https://tryhackme.com/room/reverseengineering">Reverse Engineering</a></li>
+                <li><input type="checkbox" id="reverselfiles"> <a href="https://tryhackme.com/room/reverselfiles">Reverse Files</a></li>
+                <li><input type="checkbox" id="jvmreverseengineering"> <a href="https://tryhackme.com/room/jvmreverseengineering">JVM Reverse Engineering</a></li>
+                <li><input type="checkbox" id="ccradare"> <a href="https://tryhackme.com/room/ccradare">CC Radare</a></li>
+                <li><input type="checkbox" id="ccghidra2"> <a href="https://tryhackme.com/room/ccghidra2">CC Ghidra 2</a></li>
+                <li><input type="checkbox" id="aster"> <a href="https://tryhackme.com/room/aster">Aster</a></li>
+                <li><input type="checkbox" id="classicpasswd"> <a href="https://tryhackme.com/room/classicpasswd">Classic Password</a></li>
+                <li><input type="checkbox" id="reloaded"> <a href="https://tryhackme.com/room/reloaded">Reloaded</a></li>
+                <h2>Malware Analysis            </h2>
+                <li><input type="checkbox" id="historyofmalware"> <a href="https://tryhackme.com/room/historyofmalware">History of Malware</a></li>
+                <li><input type="checkbox" id="malmalintroductory"> <a href="https://tryhackme.com/room/malmalintroductory">MalMal Introductory</a></li>
+                <li><input type="checkbox" id="basicmalwarere"> <a href="https://tryhackme.com/room/basicmalwarere">Basic Malware RE</a></li>
+                <li><input type="checkbox" id="malresearching"> <a href="https://tryhackme.com/room/malresearching">Malware Researching</a></li>
+                <li><input type="checkbox" id="mma"> <a href="https://tryhackme.com/room/mma">MMA</a></li>
+                <li><input type="checkbox" id="c2carnage"> <a href="https://tryhackme.com/room/c2carnage">C2 Carnage</a></li>
+                <li><input type="checkbox" id="dunklematerieptxc9"> <a href="https://tryhackme.com/room/dunklematerieptxc9">Dunkle Materie PTXC9</a></li>
+    <h2>Steganography</h2>
+    <li><input type="checkbox" id="ccstego"> <a href="https://tryhackme.com/room/ccstego">CC Stego</a></li>
+        <li><input type="checkbox" id="cicada3301vol1"> <a href="https://tryhackme.com/room/cicada3301vol1">Cicada 3301 Vol 1</a></li>
+        <li><input type="checkbox" id="musicalstego"> <a href="https://tryhackme.com/room/musicalstego">Musical Stego</a></li>
+        <li><input type="checkbox" id="madness"> <a href="https://tryhackme.com/room/madness">Madness</a></li>
+        <li><input type="checkbox" id="psychobreak"> <a href="https://tryhackme.com/room/psychobreak">Psychobreak</a></li>
+        <li><input type="checkbox" id="unstabletwin"> <a href="https://tryhackme.com/room/unstabletwin">Unstable Twin</a></li>
+    <h2>PrivEsc:</h2>
+        <li><input type="checkbox" id="linprivesc"> <a href="https://tryhackme.com/room/linprivesc">Linux Privilege Escalation</a></li>
+        <li><input type="checkbox" id="linuxprivesc"> <a href="https://tryhackme.com/room/linuxprivesc">Linux Privilege Escalation</a></li>
+        <li><input type="checkbox" id="linuxprivescarena"> <a href="https://tryhackme.com/room/linuxprivescarena">Linux Privilege Escalation Arena</a></li>
+        <li><input type="checkbox" id="windows10privesc"> <a href="https://tryhackme.com/room/windows10privesc">Windows 10 Privilege Escalation</a></li>
+        <li><input type="checkbox" id="windowsprivescarena"> <a href="https://tryhackme.com/room/windowsprivescarena">Windows Privilege Escalation Arena</a></li>
+        <li><input type="checkbox" id="linuxagency"> <a href="https://tryhackme.com/room/linuxagency">Linux Agency</a></li>
+        <h2>Windows:    </h2>
+        <li><input type="checkbox" id="windowsfundamentals1xbx"> <a href="https://tryhackme.com/room/windowsfundamentals1xbx">Windows Fundamentals 1</a></li>
+        <li><input type="checkbox" id="windowsfundamentals2x0x"> <a href="https://tryhackme.com/room/windowsfundamentals2x0x">Windows Fundamentals 2</a></li>
+        <li><input type="checkbox" id="windowsfundamentals3xzx"> <a href="https://tryhackme.com/room/windowsfundamentals3xzx">Windows Fundamentals 3</a></li>
+        <li><input type="checkbox" id="investigatingwindows"> <a href="https://tryhackme.com/room/investigatingwindows">Investigating Windows</a></li>
+        <li><input type="checkbox" id="investigatingwindows2"> <a href="https://tryhackme.com/room/investigatingwindows2">Investigating Windows 2</a></li>
+        <li><input type="checkbox" id="investigatingwindows3"> <a href="https://tryhackme.com/room/investigatingwindows3">Investigating Windows 3</a></li>
+        <li><input type="checkbox" id="blueprint"> <a href="https://tryhackme.com/room/blueprint">Blueprint</a></li>
+        <li><input type="checkbox" id="vulnnetactive"> <a href="https://tryhackme.com/room/vulnnetactive">VulnNet Active</a></li>
+        <li><input type="checkbox" id="anthem"> <a href="https://tryhackme.com/room/anthem">Anthem</a></li>
+        <li><input type="checkbox" id="blue"> <a href="https://tryhackme.com/room/blue">Blue</a></li>
+        <h2>Active Directory:    </h2>
+        <li><input type="checkbox" id="attacktivedirectory"> <a href="https://tryhackme.com/room/attacktivedirectory">Active Directory</a></li>
+        <li><input type="checkbox" id="postexploit"> <a href="https://tryhackme.com/room/postexploit">Post Exploit</a></li>
+        <li><input type="checkbox" id="ustoun"> <a href="https://tryhackme.com/room/ustoun">Ustoun</a></li>
+        <li><input type="checkbox" id="enterprise"> <a href="https://tryhackme.com/room/enterprise">Enterprise</a></li>
+        <li><input type="checkbox" id="raz0rblack"> <a href="https://tryhackme.com/room/raz0rblack">Raz0r Black</a></li>
+        <h2>PCAP Analysis    </h2>
+        <li><input type="checkbox" id="h4cked"> <a href="https://tryhackme.com/room/h4cked">H4CKED</a></li>
+        <li><input type="checkbox" id="c2carnage"> <a href="https://tryhackme.com/room/c2carnage">C2 Carnage</a></li>
+        <li><input type="checkbox" id="cct2019"> <a href="https://tryhackme.com/room/cct2019">CCT 2019</a></li>
+        <li><input type="checkbox" id="overpass2hacked"> <a href="https://tryhackme.com/room/overpass2hacked">Overpass 2 Hacked</a></li>
+        <h2>BufferOverflow:    </h2>
+        <li><input type="checkbox" id="bufferoverflowprep"> <a href="https://tryhackme.com/room/bufferoverflowprep">Buffer Overflow Prep</a></li>
+        <li><input type="checkbox" id="gatekeeper"> <a href="https://tryhackme.com/room/gatekeeper">Gatekeeper</a></li>
+        <li><input type="checkbox" id="chronicle"> <a href="https://tryhackme.com/room/chronicle">Chronicle</a></li>
+        <li><input type="checkbox" id="introtopwntools"> <a href="https://tryhackme.com/room/introtopwntools">Intro to PWNT Tools</a></li>
+    <h2>Easy CTF:</h2>
+    <li><input type="checkbox" id="overlayfs"> <a href="https://tryhackme.com/room/overlayfs">OverlayFS</a></li>
+        <li><input type="checkbox" id="gamingserver"> <a href="https://tryhackme.com/room/gamingserver">Gaming Server</a></li>
+        <li><input type="checkbox" id="psychobreak"> <a href="https://tryhackme.com/room/psychobreak">Psycho Break</a></li>
+        <li><input type="checkbox" id="cowboyhacker"> <a href="https://tryhackme.com/room/cowboyhacker">Cowboy Hacker</a></li>
+        <li><input type="checkbox" id="ctf"> <a href="https://tryhackme.com/room/ctf">CTF</a></li>
+        <li><input type="checkbox" id="rrootme"> <a href="https://tryhackme.com/room/rrootme">RRootMe</a></li>
+        <li><input type="checkbox" id="attackerkb"> <a href="https://tryhackme.com/room/attackerkb">Attacker KB</a></li>
+        <li><input type="checkbox" id="picklerick"> <a href="https://tryhackme.com/room/picklerick">Pickle Rick</a></li>
+        <li><input type="checkbox" id="c4ptur3th3fl4g"> <a href="https://tryhackme.com/room/c4ptur3th3fl4g">Capture the Flag</a></li>
+        <li><input type="checkbox" id="bsidesgtlibrary"> <a href="https://tryhackme.com/room/bsidesgtlibrary">BSidesGT Library</a></li>
+        <li><input type="checkbox" id="bsidesgtthompson"> <a href="https://tryhackme.com/room/bsidesgtthompson">BSidesGT Thompson</a></li>
+        <li><input type="checkbox" id="easyctf"> <a href="https://tryhackme.com/room/easyctf">Easy CTF</a></li>
+        <li><input type="checkbox" id="lazyadmin"> <a href="https://tryhackme.com/room/lazyadmin">Lazy Admin</a></li>
+        <li><input type="checkbox" id="bsidesgtanonforce"> <a href="https://tryhackme.com/room/bsidesgtanonforce">BSidesGT AnonForce</a></li>
+        <li><input type="checkbox" id="ignite"> <a href="https://tryhackme.com/room/ignite">Ignite</a></li>
+        <li><input type="checkbox" id="wgelctf"> <a href="https://tryhackme.com/room/wgelctf">WGEL CTF</a></li>
+        <li><input type="checkbox" id="kenobi"> <a href="https://tryhackme.com/room/kenobi">Kenobi</a></li>
+        <li><input type="checkbox" id="bsidesgtdav"> <a href="https://tryhackme.com/room/bsidesgtdav">BSidesGT Dav</a></li>
+        <li><input type="checkbox" id="ninjaskills"> <a href="https://tryhackme.com/room/ninjaskills">Ninja Skills</a></li>
+        <li><input type="checkbox" id="ice"> <a href="https://tryhackme.com/room/ice">ICE</a></li>
+        <li><input type="checkbox" id="lianyu"> <a href="https://tryhackme.com/room/lianyu">Lianyu</a></li>
+        <li><input type="checkbox" id="thecodcaper"> <a href="https://tryhackme.com/room/thecodcaper">The Code Caper</a></li>
+        <li><input type="checkbox" id="blaster"> <a href="https://tryhackme.com/room/blaster">Blaster</a></li>
+        <li><input type="checkbox" id="encryptioncrypto101"> <a href="https://tryhackme.com/room/encryptioncrypto101">Encryption Crypto 101</a></li>
+        <li><input type="checkbox" id="brooklynninenine"> <a href="https://tryhackme.com/room/brooklynninenine">Brooklyn Nine-Nine</a></li>
+        <li><input type="checkbox" id="yearoftherabbit"> <a href="https://tryhackme.com/room/yearoftherabbit">Year of the Rabbit</a></li>
+        <li><input type="checkbox" id="jackofalltrades"> <a href="https://tryhackme.com/room/jackofalltrades">Jack of All Trades</a></li>
+        <li><input type="checkbox" id="madness"> <a href="https://tryhackme.com/room/madness">Madness</a></li>
+        <li><input type="checkbox" id="kothfoodctf"> <a href="https://tryhackme.com/room/kothfoodctf">KOTH Food CTF</a></li>
+        <li><input type="checkbox" id="easypeasyctf"> <a href="https://tryhackme.com/room/easypeasyctf">Easy Peasy CTF</a></li>
+        <li><input type="checkbox" id="tonythetiger"> <a href="https://tryhackme.com/room/tonythetiger">Tony the Tiger</a></li>
+        <li><input type="checkbox" id="ctfcollectionvol1"> <a href="https://tryhackme.com/room/ctfcollectionvol1">CTF Collection Vol 1</a></li>
+        <li><input type="checkbox" id="smaggrotto"> <a href="https://tryhackme.com/room/smaggrotto">Smaggrotto</a></li>
+        <li><input type="checkbox" id="couch"> <a href="https://tryhackme.com/room/couch">Couch</a></li>
+        <li><input type="checkbox" id="source"> <a href="https://tryhackme.com/room/source">Source</a></li>
+        <li><input type="checkbox" id="overpass"> <a href="https://tryhackme.com/room/overpass">Overpass</a></li>
+        <li><input type="checkbox" id="pokemon"> <a href="https://tryhackme.com/room/pokemon">Pokemon</a></li>
+        <li><input type="checkbox" id="bolt"> <a href="https://tryhackme.com/room/bolt">Bolt</a></li>
+        <li><input type="checkbox" id="overpass2hacked"> <a href="https://tryhackme.com/room/overpass2hacked">Overpass 2 Hacked</a></li>
+        <li><input type="checkbox" id="kiba"> <a href="https://tryhackme.com/room/kiba">Kiba</a></li>
+        <li><input type="checkbox" id="poster"> <a href="https://tryhackme.com/room/poster">Poster</a></li>
+        <li><input type="checkbox" id="chocolatefactory"> <a href="https://tryhackme.com/room/chocolatefactory">Chocolate Factory</a></li>
+        <li><input type="checkbox" id="startup"> <a href="https://tryhackme.com/room/startup">Startup</a></li>
+        <li><input type="checkbox" id="chillhack"> <a href="https://tryhackme.com/room/chillhack">Chill Hack</a></li>
+        <li><input type="checkbox" id="colddboxeasy"> <a href="https://tryhackme.com/room/colddboxeasy">Cold Box Easy</a></li>
+        <li><input type="checkbox" id="glitch"> <a href="https://tryhackme.com/room/glitch">Glitch</a></li>
+        <li><input type="checkbox" id="allinonemj"> <a href="https://tryhackme.com/room/allinonemj">All in One MJ</a></li>
+        <li><input type="checkbox" id="archangel"> <a href="https://tryhackme.com/room/archangel">Archangel</a></li>
+        <li><input type="checkbox" id="cyborgt8"> <a href="https://tryhackme.com/room/cyborgt8">Cyborg T8</a></li>
+        <li><input type="checkbox" id="lunizzctfnd"> <a href="https://tryhackme.com/room/lunizzctfnd">Lunizz CTF ND</a></li>
+        <li><input type="checkbox" id="badbyte"> <a href="https://tryhackme.com/room/badbyte">Bad Byte</a></li>
+        <li><input type="checkbox" id="teamcw"> <a href="https://tryhackme.com/room/teamcw">Team CW</a></li>
+        <li><input type="checkbox" id="vulnnetnode"> <a href="https://tryhackme.com/room/vulnnetnode">VulnNet Node</a></li>
+        <li><input type="checkbox" id="vulnnetinternal"> <a href="https://tryhackme.com/room/vulnnetinternal">VulnNet Internal</a></li>
+        <li><input type="checkbox" id="atlas"> <a href="https://tryhackme.com/room/atlas">Atlas</a></li>
+        <li><input type="checkbox" id="vulnnetroasted"> <a href="https://tryhackme.com/room/vulnnetroasted">VulnNet Roasted</a></li>
+        <li><input type="checkbox" id="catpictures"> <a href="https://tryhackme.com/room/catpictures">Cat Pictures</a></li>
+    <h2>Medium CTF</h2>
+    <li><input type="checkbox" id="road"> <a href="https://tryhackme.com/room/road">Road</a></li>
+    <li><input type="checkbox" id="mrrobot"> <a href="https://tryhackme.com/room/mrrobot">Mr. Robot</a></li>
+    <li><input type="checkbox" id="goldeneye"> <a href="https://tryhackme.com/room/goldeneye">Goldeneye</a></li>
+    <li><input type="checkbox" id="stuxctf"> <a href="https://tryhackme.com/room/stuxctf">Stux CTF</a></li>
+    <li><input type="checkbox" id="boilerctf2"> <a href="https://tryhackme.com/room/boilerctf2">Boiler CTF 2</a></li>
+    <li><input type="checkbox" id="jokerctf"> <a href="https://tryhackme.com/room/jokerctf">Joker CTF</a></li>
+    <li><input type="checkbox" id="biohazard"> <a href="https://tryhackme.com/room/biohazard">Biohazard</a></li>
+    <li><input type="checkbox" id="breakit"> <a href="https://tryhackme.com/room/breakit">Break It</a></li>
+    <li><input type="checkbox" id="willow"> <a href="https://tryhackme.com/room/willow">Willow</a></li>
+    <li><input type="checkbox" id="marketplace"> <a href="https://tryhackme.com/room/marketplace">Marketplace</a></li>
+    <li><input type="checkbox" id="nax"> <a href="https://tryhackme.com/room/nax">NAX</a></li>
+    <li><input type="checkbox" id="mindgames"> <a href="https://tryhackme.com/room/mindgames">Mind Games</a></li>
+    <li><input type="checkbox" id="anonymous"> <a href="https://tryhackme.com/room/anonymous">Anonymous</a></li>
+    <li><input type="checkbox" id="blog"> <a href="https://tryhackme.com/room/blog">Blog</a></li>
+    <li><input type="checkbox" id="wonderland"> <a href="https://tryhackme.com/room/wonderland">Wonderland</a></li>
+    <li><input type="checkbox" id="0day"> <a href="https://tryhackme.com/room/0day">0day</a></li>
+    <li><input type="checkbox" id="bsidesgtdevelpy"> <a href="https://tryhackme.com/room/bsidesgtdevelpy">BSidesGT Develpy</a></li>
+    <li><input type="checkbox" id="ctfcollectionvol2"> <a href="https://tryhackme.com/room/ctfcollectionvol2">CTF Collection Vol 2</a></li>
+    <li><input type="checkbox" id="cmess"> <a href="https://tryhackme.com/room/cmess">CMess</a></li>
+    <li><input type="checkbox" id="dejavu"> <a href="https://tryhackme.com/room/dejavu">Deja Vu</a></li>
+    <li><input type="checkbox" id="hackernote"> <a href="https://tryhackme.com/room/hackernote">Hacker Note</a></li>
+    <li><input type="checkbox" id="dogcat"> <a href="https://tryhackme.com/room/dogcat">Dog Cat</a></li>
+    <li><input type="checkbox" id="convertmyvideo"> <a href="https://tryhackme.com/room/convertmyvideo">Convert My Video</a></li>
+    <li><input type="checkbox" id="kothhackers"> <a href="https://tryhackme.com/room/kothhackers">KOTH Hackers</a></li>
+    <li><input type="checkbox" id="revenge"> <a href="https://tryhackme.com/room/revenge">Revenge</a></li>
+    <li><input type="checkbox" id="harder"> <a href="https://tryhackme.com/room/harder">Harder</a></li>
+    <li><input type="checkbox" id="haskhell"> <a href="https://tryhackme.com/room/haskhell">Haskhell</a></li>
+    <li><input type="checkbox" id="undiscoveredup"> <a href="https://tryhackme.com/room/undiscoveredup">Undiscovered Up</a></li>
+    <li><input type="checkbox" id="breakoutthecage1"> <a href="https://tryhackme.com/room/breakoutthecage1">Breakout The Cage 1</a></li>
+    <li><input type="checkbox" id="theimpossiblechallenge"> <a href="https://tryhackme.com/room/theimpossiblechallenge">The Impossible Challenge</a></li>
+    <li><input type="checkbox" id="lookingglass"> <a href="https://tryhackme.com/room/lookingglass">Looking Glass</a></li>
+    <li><input type="checkbox" id="recovery"> <a href="https://tryhackme.com/room/recovery">Recovery</a></li>
+    <li><input type="checkbox" id="relevant"> <a href="https://tryhackme.com/room/relevant">Relevant</a></li>
+    <li><input type="checkbox" id="ghizerctf"> <a href="https://tryhackme.com/room/ghizerctf">Ghizer CTF</a></li>
+    <li><input type="checkbox" id="mnemonic"> <a href="https://tryhackme.com/room/mnemonic">Mnemonic</a></li>
+    <li><input type="checkbox" id="wwbuddy"> <a href="https://tryhackme.com/room/wwbuddy">WW Buddy</a></li>
+    <li><input type="checkbox" id="theblobblog"> <a href="https://tryhackme.com/room/theblobblog">The Blob Blog</a></li>
+    <li><input type="checkbox" id="cooctusadventures"> <a href="https://tryhackme.com/room/cooctusadventures">Cooctus Adventures</a></li>
+    <li><input type="checkbox" id="ctfonepiece65"> <a href="https://tryhackme.com/room/ctfonepiece65">CTF One Piece 65</a></li>
+    <li><input type="checkbox" id="toc2"> <a href="https://tryhackme.com/room/toc2">TOC 2</a></li>
+    <li><input type="checkbox" id="nerdherd"> <a href="https://tryhackme.com/room/nerdherd">Nerd Herd</a></li>
+    <li><input type="checkbox" id="kuberneteschalltdi2020"> <a href="https://tryhackme.com/room/kuberneteschalltdi2020">Kubernetes Challenge 2020</a></li>
+    <li><input type="checkbox" id="theserverfromhell"> <a href="https://tryhackme.com/room/theserverfromhell">The Server From Hell</a></li>
+    <li><input type="checkbox" id="jacobtheboss"> <a href="https://tryhackme.com/room/jacobtheboss">Jacob The Boss</a></li>
+    <li><input type="checkbox" id="unbakedpie"> <a href="https://tryhackme.com/room/unbakedpie">Unbaked Pie</a></li>
+    <li><input type="checkbox" id="bookstoreoc"> <a href="https://tryhackme.com/room/bookstoreoc">Bookstore OC</a></li>
+    <li><input type="checkbox" id="overpass3hosting"> <a href="https://tryhackme.com/room/overpass3hosting">Overpass 3 Hosting</a></li>
+    <li><input type="checkbox" id="battery"> <a href="https://tryhackme.com/room/battery">Battery</a></li>
+    <li><input type="checkbox" id="madeyescastle"> <a href="https://tryhackme.com/room/madeyescastle">Mad Eye's Castle</a></li>
+    <li><input type="checkbox" id="enpass"> <a href="https://tryhackme.com/room/enpass">Enpass</a></li>
+    <li><input type="checkbox" id="sustah"> <a href="https://tryhackme.com/room/sustah">Sustah</a></li>
+    <li><input type="checkbox" id="somesint"> <a href="https://tryhackme.com/room/somesint">Some SINT</a></li>
+    <li><input type="checkbox" id="tokyoghoul666"> <a href="https://tryhackme.com/room/tokyoghoul666">Tokyo Ghoul 666</a></li>
+    <li><input type="checkbox" id="watcher"> <a href="https://tryhackme.com/room/watcher">Watcher</a></li>
+    <li><input type="checkbox" id="broker"> <a href="https://tryhackme.com/room/broker">Broker</a></li>
+    <li><input type="checkbox" id="inferno"> <a href="https://tryhackme.com/room/inferno">Inferno</a></li>
+    <li><input type="checkbox" id="vulnnetdotpy"> <a href="https://tryhackme.com/room/vulnnetdotpy">VulnNet Dot Py</a></li>
+    <li><input type="checkbox" id="wekorra"> <a href="https://tryhackme.com/room/wekorra">Wekorra</a></li>
+    <li><input type="checkbox" id="pylonzf"> <a href="https://tryhackme.com/room/pylonzf">Pylon ZF</a></li>
+    <li><input type="checkbox" id="thegreatescape"> <a href="https://tryhackme.com/room/thegreatescape">The Great Escape</a></li>
+    <li><input type="checkbox" id="safezone"> <a href="https://tryhackme.com/room/safezone">Safezone</a></li>
+    <li><input type="checkbox" id="nahamstore"> <a href="https://tryhackme.com/room/nahamstore">Naham Store</a></li>
+    <li><input type="checkbox" id="sweettoothinc"> <a href="https://tryhackme.com/room/sweettoothinc">Sweet Tooth Inc</a></li>
+    <li><input type="checkbox" id="cmspit"> <a href="https://tryhackme.com/room/cmspit">CMS Pit</a></li>
+    <li><input type="checkbox" id="superspamr"> <a href="https://tryhackme.com/room/superspamr">Super Spam R</a></li>
+    <li><input type="checkbox" id="thatstheticket"> <a href="https://tryhackme.com/room/thatstheticket">That's The Ticket</a></li>
+    <li><input type="checkbox" id="debug"> <a href="https://tryhackme.com/room/debug">Debug</a></li>
+    <li><input type="checkbox" id="redstoneonecarat"> <a href="https://tryhackme.com/room/redstoneonecarat">Redstone One Carat</a></li>
+    <li><input type="checkbox" id="coldvvars"> <a href="https://tryhackme.com/room/coldvvars">Cold VVars</a></li>
+    <li><input type="checkbox" id="metamorphosis"> <a href="https://tryhackme.com/room/metamorphosis">Metamorphosis</a></li>
+    <li><input type="checkbox" id="sqhell"> <a href="https://tryhackme.com/room/sqhell">SQ Hell</a></li>
+    <li><input type="checkbox" id="fortress"> <a href="https://tryhackme.com/room/fortress">Fortress</a></li>
+    <li><input type="checkbox" id="cybercrafted"> <a href="https://tryhackme.com/room/cybercrafted">Cyber Crafted</a></li>
+    <h2>Hard CTF</h2>
+    <li><input type="checkbox" id="m4tr1xexitdenied"> <a href="https://tryhackme.com/room/m4tr1xexitdenied">M4tr1x Exit Denied</a></li>
+    <li><input type="checkbox" id="motunui"> <a href="https://tryhackme.com/room/motunui">Motunui</a></li>
+    <li><input type="checkbox" id="spring"> <a href="https://tryhackme.com/room/spring">Spring</a></li>
+    <li><input type="checkbox" id="brainpan"> <a href="https://tryhackme.com/room/brainpan">Brainpan</a></li>
+    <li><input type="checkbox" id="borderlands"> <a href="https://tryhackme.com/room/borderlands">Borderlands</a></li>
+    <li><input type="checkbox" id="hc0nchristmasctf"> <a href="https://tryhackme.com/room/hc0nchristmasctf">HC0N Christmas CTF</a></li>
+    <li><input type="checkbox" id="dailybugle"> <a href="https://tryhackme.com/room/dailybugle">Daily Bugle</a></li>
+    <li><input type="checkbox" id="retro"> <a href="https://tryhackme.com/room/retro">Retro</a></li>
+    <li><input type="checkbox" id="jeff"> <a href="https://tryhackme.com/room/jeff">Jeff</a></li>
+    <li><input type="checkbox" id="racetrackbank"> <a href="https://tryhackme.com/room/racetrackbank">Racetrack Bank</a></li>
+    <li><input type="checkbox" id="davesblog"> <a href="https://tryhackme.com/room/davesblog">Dave's Blog</a></li>
+    <li><input type="checkbox" id="cherryblossom"> <a href="https://tryhackme.com/room/cherryblossom">Cherry Blossom</a></li>
+    <li><input type="checkbox" id="cct2019"> <a href="https://tryhackme.com/room/cct2019">CCT 2019</a></li>
+    <li><input type="checkbox" id="ironcorp"> <a href="https://tryhackme.com/room/ironcorp">Iron Corp</a></li>
+    <li><input type="checkbox" id="carpediem1"> <a href="https://tryhackme.com/room/carpediem1">Carpe Diem 1</a></li>
+    <li><input type="checkbox" id="ra"> <a href="https://tryhackme.com/room/ra">RA</a></li>
+    <li><input type="checkbox" id="yotf"> <a href="https://tryhackme.com/room/yotf">YOTF</a></li>
+    <li><input type="checkbox" id="forbusinessreasons"> <a href="https://tryhackme.com/room/forbusinessreasons">For Business Reasons</a></li>
+    <li><input type="checkbox" id="anonymousplayground"> <a href="https://tryhackme.com/room/anonymousplayground">Anonymous Playground</a></li>
+    <li><input type="checkbox" id="misguidedghosts"> <a href="https://tryhackme.com/room/misguidedghosts">Misguided Ghosts</a></li>
+    <li><input type="checkbox" id="theseus"> <a href="https://tryhackme.com/room/theseus">Theseus</a></li>
+    <li><input type="checkbox" id="internal"> <a href="https://tryhackme.com/room/internal">Internal</a></li>
+    <li><input type="checkbox" id="yearofthedog"> <a href="https://tryhackme.com/room/yearofthedog">Year of the Dog</a></li>
+    <li><input type="checkbox" id="inacave"> <a href="https://tryhackme.com/room/inacave">In A Cave</a></li>
+    <li><input type="checkbox" id="yearoftheowl"> <a href="https://tryhackme.com/room/yearoftheowl">Year of the Owl</a></li>
+    <li><input type="checkbox" id="yearofthepig"> <a href="https://tryhackme.com/room/yearofthepig">Year of the Pig</a></li>
+    <li><input type="checkbox" id="envizon"> <a href="https://tryhackme.com/room/envizon">Envizon</a></li>
+    <li><input type="checkbox" id="gamebuzz"> <a href="https://tryhackme.com/room/gamebuzz">Game Buzz</a></li>
+    <li><input type="checkbox" id="fusioncorp"> <a href="https://tryhackme.com/room/fusioncorp">Fusion Corp</a></li>
+    <li><input type="checkbox" id="crocccrew"> <a href="https://tryhackme.com/room/crocccrew">Crocc Crew</a></li>
+    <li><input type="checkbox" id="uranium"> <a href="https://tryhackme.com/room/uranium">Uranium</a></li>
+    <li><input type="checkbox" id="yearofthejellyfish"> <a href="https://tryhackme.com/room/yearofthejellyfish">Year of the Jellyfish</a></li>
+    <li><input type="checkbox" id="rocket"> <a href="https://tryhackme.com/room/rocket">Rocket</a></li>
+    <li><input type="checkbox" id="squidgameroom"> <a href="https://tryhackme.com/room/squidgameroom">Squid Game Room</a></li>
+    <li><input type="checkbox" id="enterprize"> <a href="https://tryhackme.com/room/enterprize">Enterprize</a></li>
+    <li><input type="checkbox" id="adana"> <a href="https://tryhackme.com/room/adana">Adana</a></li>
+    <li><input type="checkbox" id="vulnnetdotjar"> <a href="https://tryhackme.com/room/vulnnetdotjar">VulnNet Dot Jar</a></li>
+    
+    <h2>Special Events:</h2>
+    <li><input type="checkbox" id="hackerofthehill"> <a href="https://tryhackme.com/room/hackerofthehill">Hacker of the Hill</a></li>
+    <li><input type="checkbox" id="25daysofchristmas"> <a href="https://tryhackme.com/room/25daysofchristmas">25 Days of Christmas</a></li>
+    <li><input type="checkbox" id="learncyberin25days"> <a href="https://tryhackme.com/room/learncyberin25days">Learn Cyber in 25 Days</a></li>
+    <li><input type="checkbox" id="adventofcyber2"> <a href="https://tryhackme.com/room/adventofcyber2">Advent of Cyber 2</a></li>
+    <li><input type="checkbox" id="adventofcyber3"> <a href="https://tryhackme.com/room/adventofcyber3">Advent of Cyber 3</a></li>
+    <li><input type="checkbox" id="cyberweek2021"> <a href="https://tryhackme.com/room/cyberweek2021">Cyber Week 2021</a></li>
+    <li><input type="checkbox" id="tickets1"> <a href="https://tryhackme.com/room/tickets1">Tickets 1</a></li>
+    <li><input type="checkbox" id="tickets2"> <a href="https://tryhackme.com/room/tickets2">Tickets 2</a></li>
+    
+    <h2>Misc:</h2>
+    <li><input type="checkbox" id="solar"> <a href="https://tryhackme.com/room/solar">Solar</a></li>
+    <li><input type="checkbox" id="django"> <a href="https://tryhackme.com/room/django">Django</a></li>
+    <li><input type="checkbox" id="githappens"> <a href="https://tryhackme.com/room/githappens">Git Happens</a></li>
+    <li><input type="checkbox" id="meltdownexplained"> <a href="https://tryhackme.com/room/meltdownexplained">Meltdown Explained</a></li>
+    <li><input type="checkbox" id="bpsplunk"> <a href="https://tryhackme.com/room/bpsplunk">BPSplunk</a></li>
+    <li><input type="checkbox" id="linuxbackdoors"> <a href="https://tryhackme.com/room/linuxbackdoors">Linux Backdoors</a></li>
+    <li><input type="checkbox" id="thefindcommand"> <a href="https://tryhackme.com/room/thefindcommand">The Find Command</a></li>
+    <li><input type="checkbox" id="jupyter101"> <a href="https://tryhackme.com/room/jupyter101">Jupyter 101</a></li>
+    <li><input type="checkbox" id="geolocatingimages"> <a href="https://tryhackme.com/room/geolocatingimages">Geolocating Images</a></li>
+    <li><input type="checkbox" id="torforbeginners"> <a href="https://tryhackme.com/room/torforbeginners">Tor for Beginners</a></li>
+    <li><input type="checkbox" id="tomghost"> <a href="https://tryhackme.com/room/tomghost">Tom Ghost</a></li>
+    <li><input type="checkbox" id="dllhijacking"> <a href="https://tryhackme.com/room/dllhijacking">DLL Hijacking</a></li>
+    <li><input type="checkbox" id="iotintro"> <a href="https://tryhackme.com/room/iotintro">IoT Intro</a></li>
+    <li><input type="checkbox" id="attackingics1"> <a href="https://tryhackme.com/room/attackingics1">Attacking ICS 1</a></li>
+    <li><input type="checkbox" id="attackingics2"> <a href="https://tryhackme.com/room/attackingics2">Attacking ICS 2</a></li>
+    <li><input type="checkbox" id="printerhacking101"> <a href="https://tryhackme.com/room/printerhacking101">Printer Hacking 101</a></li>
+    <li><input type="checkbox" id="dnsmanipulation"> <a href="https://tryhackme.com/room/dnsmanipulation">DNS Manipulation</a></li>
+    <li><input type="checkbox" id="flask"> <a href="https://tryhackme.com/room/flask">Flask</a></li>
+    <li><input type="checkbox" id="mitre"> <a href="https://tryhackme.com/room/mitre">MITRE</a></li>
+    <li><input type="checkbox" id="magician"> <a href="https://tryhackme.com/room/magician">Magician</a></li>
+    <li><input type="checkbox" id="jpgchat"> <a href="https://tryhackme.com/room/jpgchat">JPG Chat</a></li>
+    <li><input type="checkbox" id="sudovulnssamedit"> <a href="https://tryhackme.com/room/sudovulnssamedit">Sudo Vulnerability Samedit</a></li>
+    <li><input type="checkbox" id="cve202141773"> <a href="https://tryhackme.com/room/cve202141773">CVE-2021-41773</a></li>
+    <li><input type="checkbox" id="binaryheaven"> <a href="https://tryhackme.com/room/binaryheaven">Binary Heaven</a></li>
+    <li><input type="checkbox" id="gitandcrumpets"> <a href="https://tryhackme.com/room/gitandcrumpets">Git and Crumpets</a></li>
+    <li><input type="checkbox" id="polkit"> <a href="https://tryhackme.com/room/polkit">Polkit</a></li>
+    <li><input type="checkbox" id="hipflask"> <a href="https://tryhackme.com/room/hipflask">Hip Flask</a></li>
+    <li><input type="checkbox" id="bypassdisablefunctions"> <a href="https://tryhackme.com/room/bypassdisablefunctions">Bypass Disable Functions</a></li>
+    <li><input type="checkbox" id="wordpresscve202129447"> <a href="https://tryhackme.com/room/wordpresscve202129447">WordPress CVE-2021-29447</a></li>
+    <li><input type="checkbox" id="linuxfunctionhooking"> <a href="https://tryhackme.com/room/linuxfunctionhooking">Linux Function Hooking</a></li>
+    <li><input type="checkbox" id="revilcorp"> <a href="https://tryhackme.com/room/revilcorp">Revil Corp</a></li>
+    <li><input type="checkbox" id="sudovulnsbof"> <a href="https://tryhackme.com/room/sudovulnsbof">Sudo Vulnerabilities BOF</a></li>
+    <li><input type="checkbox" id="sudovulnsbypass"> <a href="https://tryhackme.com/room/sudovulnsbypass">Sudo Vulnerabilities Bypass</a></li>
+    
     </ul>
 </body>
 </html>
